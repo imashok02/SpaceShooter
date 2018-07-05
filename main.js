@@ -15,6 +15,7 @@ var scoretext;
 var winText;
 
 
+
 var first = {
 	preload:function() {
 		game.load.image('starfield', "assets/starfield.png");
@@ -28,6 +29,9 @@ var first = {
 	create:function() {
 		spacefield = game.add.tileSprite(0,0,800,600,'starfield');
 		backgoundv = 4;
+
+		timer = game.time.create(false);
+		timer.start();
 
 		player = game.add.sprite(100, 250, 'player');
 		player.angle = 90;
@@ -81,13 +85,14 @@ var first = {
 			fireBullet();
 		}
 
-		scoreText.text = 'Score:' + score;
+		
 
 		if(score == 4000)
 		{
 			winText.visible = true;
 			scoreText.visible = false;
 		}
+		scoreText.text = 'Score:' + score;
 	}
 }
 
